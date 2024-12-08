@@ -8,7 +8,7 @@ const med = Poppins({ subsets: ['latin'], weight: '500' })
 const reg = Poppins({ subsets: ['latin'], weight: '400' })
 const Products = () => {
     return (
-        <div className='mt-14 max-w-[1236px] h-[1084px] m-auto hidden flex-col items-center md:flex'>
+        <div className='mt-14 max-w-[1236px] xl:h-[1084px] m-auto hidden flex-col items-center md:flex'>
             <h1 className={`${font.className} text-lg lg:text-[40px] leading-[120%] text-[#3A3A3A] text-center`}>Our Products</h1>
             <div className='grid grid-cols-3 xl:grid-cols-4  mt-9 gap-8'>
                 <div className="h-[446px]">

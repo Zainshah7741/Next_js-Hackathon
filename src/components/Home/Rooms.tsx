@@ -14,7 +14,7 @@ const Rooms = () => {
                     <p className={`${med.className} text-base leading-[150%] text-[#616161] mt-2`}>Our designer already made a lot of beautiful <br /> prototipe of rooms that inspire you</p>
                     <button className={`${semi.className} text-base leading-[150%] bg-[#B88E2F] py-3 px-9 mt-6 text-white`}>Explore More</button>
                 </div>
-                <div className='gap-6 w-full hidden xl:flex'>
+                <div className='gap-6 w-full hidden'>
                     <div className='bg-[url(/Rectangle1.png)] xl:h-[582px] xl:w-[404px] xl:flex items-end hidden'>
                         <div className='w-[217px] h-[130px] bg-white flex flex-col justify-center pl-8 ml-6 mb-6'>
                             <span className={`${med.className} flex items-center text-base leading-[150%] text-[#616161] gap-2`}> <h1>01</h1><span className='h-[1px] w-[27px] bg-[#616161]'></span>Bed Room<span></span></span>
