@@ -5,13 +5,11 @@ import Achieve from "@/components/Shop/Achieve";
 const Checkout = () => {
     return <>
         <Checkouts />
-        <div className="container mx-auto flex flex-col md:flex-row md:justify-evenly gap-6 p-4">
-            {/* Left Section */}
+        <div className="container mx-auto flex flex-col md:flex-row md:justify-center gap-6 p-4">
             <div className="left md:w-1/2">
                 <div className="max-w-lg mx-auto bg-white p-6 rounded-md shadow-md">
                     <h2 className="text-2xl font-bold mb-6">Billing Details</h2>
                     <form>
-                        {/* First Name and Last Name */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label
@@ -44,8 +42,6 @@ const Checkout = () => {
                                 />
                             </div>
                         </div>
-
-                        {/* Company Name */}
                         <div className="mb-4">
                             <label
                                 htmlFor="companyName"
@@ -60,8 +56,6 @@ const Checkout = () => {
                                 className="mt-1 block w-full p-4 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
-
-                        {/* Country/Region */}
                         <div className="mb-4">
                             <label
                                 htmlFor="country"
@@ -80,8 +74,6 @@ const Checkout = () => {
                                 <option>United Kingdom</option>
                             </select>
                         </div>
-
-                        {/* Street Address */}
                         <div className="mb-4">
                             <label
                                 htmlFor="streetAddress"
@@ -97,8 +89,6 @@ const Checkout = () => {
                                 required
                             />
                         </div>
-
-                        {/* Town/City */}
                         <div className="mb-4">
                             <label
                                 htmlFor="city"
@@ -114,8 +104,6 @@ const Checkout = () => {
                                 required
                             />
                         </div>
-
-                        {/* Province */}
                         <div className="mb-4">
                             <label
                                 htmlFor="province"
@@ -133,8 +121,6 @@ const Checkout = () => {
                                 <option>Central Province</option>
                             </select>
                         </div>
-
-                        {/* ZIP Code */}
                         <div className="mb-4">
                             <label
                                 htmlFor="zipCode"
@@ -150,8 +136,6 @@ const Checkout = () => {
                                 required
                             />
                         </div>
-
-                        {/* Phone */}
                         <div className="mb-4">
                             <label
                                 htmlFor="phone"
@@ -167,8 +151,6 @@ const Checkout = () => {
                                 required
                             />
                         </div>
-
-                        {/* Email */}
                         <div className="mb-4">
                             <label
                                 htmlFor="email"
@@ -187,11 +169,8 @@ const Checkout = () => {
                     </form>
                 </div>
             </div>
-
-            {/* Right Section */}
             <div className="right md:w-1/3">
                 <div className="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
-                    {/* Product and Subtotal Section */}
                     <h2 className="text-lg font-bold mb-6">Product</h2>
                     <div className="flex justify-between mb-4">
                         <p>Asgaard sofa x 1</p>
@@ -205,11 +184,7 @@ const Checkout = () => {
                         <p>Total</p>
                         <p className="text-amber-600">Rs. 250,000.00</p>
                     </div>
-
-                    {/* Divider */}
                     <hr className="my-4 border-gray-200" />
-
-                    {/* Payment Methods */}
                     <div className="mb-6">
                         <p className="font-bold">Direct Bank Transfer</p>
                         <p className="text-sm text-gray-600">
@@ -218,8 +193,6 @@ const Checkout = () => {
                             our account.
                         </p>
                     </div>
-
-                    {/* Radio Buttons */}
                     <div className="mb-6">
                         <div className="flex items-center mb-2">
                             <input
@@ -253,8 +226,6 @@ const Checkout = () => {
                             </label>
                         </div>
                     </div>
-
-                    {/* Privacy Policy */}
                     <p className="text-sm text-gray-600 mb-6">
                         Your personal data will be used to support your experience throughout this website, to
                         manage access to your account, and for other purposes described in our{" "}
@@ -263,8 +234,6 @@ const Checkout = () => {
                         </a>
                         .
                     </p>
-
-                    {/* Place Order Button */}
                     <button
                         type="button"
                         className="w-1/2 bg-none text-black border border-black py-3 rounded-md text-center font-medium hover:bg-gray-200 mx-auto block"

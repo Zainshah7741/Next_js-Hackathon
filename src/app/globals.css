@@ -70,3 +70,16 @@
     @apply bg-background text-foreground;
     }
 }
+
+.box:hover .bg_hover{
+  transition: all ease .5s;
+  background-color: rgb(63, 63, 63);
+  opacity: .7;
+}
+
+.box:hover .child{
+  left:0;
+  transition: all ease .5s;
+  background-color: transparent;
+  opacity: 1;
+}

@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import { FaUser } from "react-icons/fa";
+import { FaCalendar } from "react-icons/fa6";
+import { FaTag } from "react-icons/fa";
+
 import Image from "next/image";
 
 export default function BlogLayout() {
@@ -68,78 +71,62 @@ export default function BlogLayout() {
 
     return (
         <>
-            <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
+            <Image src='/blogg.jpg' alt=" " width={1440} height={316}></Image>
+            <div className=" mx-auto px-4 xl:px-12 py-8 w-[90%] xl:mt-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 lg:grid-cols-4">
                     <div className="space-y-8 md:col-span-2 lg:col-span-3">
                         {posts.map((post, index) => (
-                            <Card key={index}>
-                                <CardContent className="p-0">
+                            <div key={index} className="w-fit">
+                                <div className="p-0">
                                     <Image
                                         src={post.image}
                                         alt={post.title}
-                                        width={800}
+                                        width={817}
                                         height={500}
-                                        className="rounded-t-lg object-cover w-full h-[500px]"
+                                        className="rounded-t-lg object-cover"
                                     />
-                                    <div className="p-6 space-y-4">
-                                        <h2 className="text-2xl font-medium">{post.title}</h2>
-                                        <div className="flex gap-4 text-sm text-muted-foreground">
-                                            <span>{post.author}</span>
-                                            <span>{post.date}</span>
-                                            <span>{post.category}</span>
+                                    <div className="py-4 space-y-4">
+                                        <div className="flex items-center gap-4 md:gap-8 text-sm text-muted-foreground">
+                                            <span className="flex gap-1 sm:gap-4 text-sm md:text-base"><FaUser></FaUser>{post.author}</span>
+                                            <span className="flex gap-1 sm:gap-4 text-sm md:text-base"><FaCalendar></FaCalendar>{post.date}</span>
+                                            <span className="flex gap-1 sm:gap-4 text-sm md:text-base"><FaTag></FaTag>{post.category}</span>
                                         </div>
-                                        <p className="text-muted-foreground">{post.excerpt}</p>
-                                        <Button variant="link" className="p-0 h-auto font-normal">
+                                        <h2 className="text-lg md:text-2xl xl:text-[33px] font-medium">{post.title}</h2>
+                                        <p className="text-sm md:textbase text-muted-foreground">{post.excerpt}</p>
+                                        <Button variant="link" className=" h-auto text-base  font-medium tracking-wider underline underline-offset-8">
                                             Read more
                                         </Button>
                                     </div>
-                                </CardContent>
-                            </Card>
+                                </div>
+                            </div>
                         ))}
-                        <div className="flex justify-center gap-2 mt-8">
-                            <Button variant="default" size="lg" className="w-12 h-12">
-                                1
-                            </Button>
-                            <Button variant="outline" size="lg" className="w-12 h-12">
-                                2
-                            </Button>
-                            <Button variant="outline" size="lg" className="w-12 h-12">
-                                3
-                            </Button>
-                            <Button variant="outline" size="lg" className="px-4">
-                                Next
-                            </Button>
-                        </div>
+
                     </div>
                     <div className="space-y-8">
-                        <Card>
-                            <CardContent className="p-6">
-                                <div className="relative">
-                                    <Input placeholder="Search" className="pl-10" />
-                                    <Search className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
+
+
+                        <div className="relative border border-black w-[70%] md:w-full m-auto py-2.5 rounded-xl">
+                            <input type="text" className="" />
+                            <Search className="absolute right-1 top-3 md:top-2 w-5 h-5 md:h-7 md:w-7" />
+                        </div>
+
+                        <h2 className="text-xl xl:text-2xl font-medium mb-4">Categories</h2>
+                        <div className="space-y-2 xl:space-y-10">
+                            {categories.map((category, index) => (
+                                <div
+                                    key={index}
+                                    className="flex justify-between text-muted-foreground"
+                                >
+                                    <span>{category.name}</span>
+                                    <span>{category.count}</span>
                                 </div>
-                            </CardContent>
-                        </Card>
+                            ))}
+                        </div>
+
                         <Card>
-                            <CardContent className="p-6">
-                                <h2 className="text-xl font-medium mb-4">Categories</h2>
-                                <div className="space-y-2">
-                                    {categories.map((category, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex justify-between text-muted-foreground"
-                                        >
-                                            <span>{category.name}</span>
-                                            <span>{category.count}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardContent className="p-6">
-                                <h2 className="text-xl font-medium mb-4">Recent Posts</h2>
-                                <div className="space-y-4">
+                            <CardContent className="mt-8 xl:mt-20">
+                                <h2 className="text-xl xl:text-2xl tracking-wide font-medium mb-4">Recent Posts</h2>
+                                <div className="space-y-10">
                                     {recentPosts.map((post, index) => (
                                         <div key={index} className="flex gap-4">
                                             <Image
@@ -160,6 +147,20 @@ export default function BlogLayout() {
                                 </div>
                             </CardContent>
                         </Card>
+                    </div>
+                    <div className="flex m-auto w-fit col-span-full gap-2 mt-8">
+                        <Button variant="default" size="lg" className="w-12 h-12 bg-[#B88E2F]">
+                            1
+                        </Button>
+                        <Button variant="outline" size="lg" className="w-12 h-12">
+                            2
+                        </Button>
+                        <Button variant="outline" size="lg" className="w-12 h-12">
+                            3
+                        </Button>
+                        <Button variant="outline" size="lg" className="px-4">
+                            Next
+                        </Button>
                     </div>
                 </div>
             </div>

@@ -1,75 +1,70 @@
-'use client'
-import Image from "next/image";
-import React, { useState } from "react";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { AiFillDelete } from "react-icons/ai";
 
-const CartSection = () => {
-    // Sample cart items
-    const [cartItems, setCartItems] = useState([
-        { id: 1, name: "Product 1", price: 25, quantity: 2 },
-        { id: 2, name: "Product 2", price: 40, quantity: 1 },
-    ]);
-
-    // Calculate subtotal
-    const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const total = subtotal + 5; // Example: Adding a $5 flat shipping fee
-
-    const removeItem = (id: any) => {
-        setCartItems(cartItems.filter((item) => item.id !== id));
-    };
-
-    return (<>
-        <Image src='/cartcover.png' alt=" " width={1440} height={316}></Image>
-        <div className="flex flex-col lg:flex-row gap-6 p-4">
-
-            {/* Left Section - Cart Items */}
-            <div className="flex-1 bg-white p-4 shadow-md rounded">
-                <h2 className="text-xl font-semibold mb-4">Shopping Cart</h2>
-                <div className="grid grid-cols-4 gap-4 font-semibold text-gray-700 border-b pb-2">
-                    <div>Product</div>
-                    <div>Price</div>
-                    <div>Quantity</div>
-                    <div>Subtotal</div>
-                </div>
-                {cartItems.map((item) => (
-                    <div
-                        key={item.id}
-                        className="grid grid-cols-4 gap-4 items-center py-2 border-b"
-                    >
-                        <div>{item.name}</div>
-                        <div>${item.price.toFixed(2)}</div>
-                        <div>{item.quantity}</div>
-                        <div className="flex justify-between items-center">
-                            ${item.price * item.quantity}
-                            <button
-                                onClick={() => removeItem(item.id)}
-                                className="text-red-500 hover:text-red-700 ml-2"
-                            >
-                                &times;
-                            </button>
+const Cart = () => {
+    return (
+        <div className="bg-white">
+            <div className="relative w-full ">
+                <Image
+                    src="/cartcover.png"
+                    alt="Shop Banner"
+                    height={400}
+                    width={1500}
+                />
+            </div>
+            <div className='py-3 md:py-7 xl:w-[83%] lg:w-[90%] m-auto overflow-x-scroll px-3 flex-col md:flex-row flex items-center sm:items-end md:items-start md:justify-between gap-5 '>
+                <div className='xl:w-[70%] w-full lg:mt-10'>
+                    <div className='grid grid-cols-4 text-sm sm:text-base xl:text-lg py-3 font-medium bg-[#FFF9E5]'>
+                        <h3 className='text-right'>Product</h3>
+                        <h3 className="text-center">Price</h3>
+                        <h3 className="text-center">Quantity</h3>
+                        <h3 className="col-span">Subtotal</h3>
+                      
+                    </div>
+                    <div className='grid grid-cols-4 mt-6 lg:mt-10 xl:mt-20 text-[8px] sm:text-xs xl:text-base items-center'>
+                        <div className='flex items-center'>
+                            <Image className='bg-[#FBEBB5] rounded-lg max-w-[100px] w-10 h-10 md:w-16 md:h-16 lg:w-28 lg:h-16'
+                                src="/asgaardsofa.png"
+                                alt="Image"
+                                width={100}
+                                height={70}
+                            />
+                            <h2 className=" text-[#9F9F9F]">Asgaard Sofa</h2>
+                        </div>
+                        <p className=" text-[#9F9F9F] text-center ">Rs. 250,000.00</p>
+                        <input
+                                type="number"
+                                className="w-8 h-8 border-2 border-gray-300 rounded-md m-auto text-center cursor-pointer"
+                                min="1"
+                                defaultValue="1"
+                            />
+                        <div className="flex gap-2 sm:gap-9 ">
+                            <p className="">Rs.250,000.00</p>
+                            <p><AiFillDelete className='text-[#ce7323] flex text-right text-2xl'></AiFillDelete></p>
                         </div>
                     </div>
-                ))}
-            </div>
-
-            {/* Right Section - Cart Total */}
-            <div className="w-full lg:w-1/3 bg-white p-4 shadow-md rounded">
-                <h2 className="text-xl font-semibold mb-4">Cart Total</h2>
-                <div className="flex justify-between py-2 border-b">
-                    <span>Subtotal:</span>
-                    <span>${subtotal.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between py-2 border-b">
-                    <span>Total:</span>
-                    <span>${total.toFixed(2)}</span>
-                </div>
-                <button className="w-full bg-blue-500 text-white py-2 mt-4 rounded hover:bg-blue-600">
-                    Checkout
-                </button>
+                <div className="bg-[#FFF9E5] space-y-5 md:space-y-7  lg:mt-10  border-2 border-[#FFF9E5] w-44 sm:w-fit ">
+                            <h2 className="text-base sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-4  text-center md:pb-10">Cart Totals</h2>
+                            <div className="flex justify-between items-center gap-5 text-[#000000] xl:px-10">
+                                <p className='text-xs md:text-base xl:text-lg'>Subtotal</p>
+                                <p className="text-xs md:text-base xl:text-lg text-[#9F9F9F]">Rs. 250,000.00</p>
+                            </div>
+                            <div className="flex justify-between items-center gap-5 text-xs md:text-base xl:text-lg font-semibold text-[#000000]  xl:px-10">
+                                <p>Total</p>
+                                <p className='text-base md:text-xl xl:text-2xl text-[#B88E2F]'>Rs. 250,000.00</p>
+                            </div>
+                            <div className='m-auto w-fit'>
+                                <Link href="/checkout"> <button className=" border-[#000000] border-[1px] text-[#000000] py-1 px-7 text-base md:py-3 md:px-16 rounded-md sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFF9E5] focus:ring-offset-2 sm:text-xl">
+                                    Checkout
+                                </button></Link>
+                            </div>
+                        </div>
             </div>
         </div>
-        <Image src='/achieve.png' alt=" " width={1440} height={270}></Image>
-    </>
     );
 };
 
-export default CartSection;
+export default Cart;
